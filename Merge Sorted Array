@@ -1,0 +1,35 @@
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int>num(m+n);
+        int nums1_size=0,nums2_size=0,num_size=0;
+
+        while(nums1_size<m &&  nums2_size<n){
+            if(nums1[nums1_size]<= nums2[nums2_size]){
+                num[num_size]=nums1[nums1_size];
+                nums1_size++;
+            }
+            else {
+               num[num_size]=nums2[nums2_size];
+                nums2_size++;
+            }
+           num_size++;
+
+        }
+
+        while(nums1_size<m){
+            num[num_size]=nums1[nums1_size];
+           nums1_size++;
+            num_size++;
+        }
+
+         while(nums2_size<n){
+           num[num_size]=nums2[nums2_size];
+           nums2_size++;
+            num_size++;
+        }
+        nums1.resize(m+n);
+        copy(num.begin(),num.end(),nums1.begin());
+
+    }
+};
