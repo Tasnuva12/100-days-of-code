@@ -1,0 +1,23 @@
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        //without additional vector but using reverse
+        int length=nums.size();
+        k=k%length;
+       reverse (nums,0,length-1);
+        reverse(nums,k,length-1);
+        reverse (nums,0,k-1);
+    }
+    
+    
+    private:
+       void reverse(vector<int>& nums,int start,int end){
+
+       while(start<end){
+           swap(nums[start],nums[end]);
+               start++;
+                end--;
+       }
+           
+       }
+};
